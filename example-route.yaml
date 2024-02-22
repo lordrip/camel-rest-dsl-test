@@ -1,0 +1,12 @@
+- route:
+    id: route-9248
+    from:
+      id: from-2657
+      description: Rest entrypoint
+      uri: direct
+      parameters:
+        name: greeting-api
+      steps:
+        - log:
+            id: log-1879
+            message: The endpoint was triggered
