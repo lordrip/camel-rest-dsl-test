@@ -1,0 +1,62 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Greeting REST API",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http:///camel/"
+        }
+    ],
+    "paths": {
+        "/greetings/{name}": {
+            "get": {
+                "tags": [
+                    "greetings"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Greetings"
+                                }
+                            }
+                        },
+                        "description": "Output type"
+                    }
+                },
+                "operationId": "greeting-api"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Greetings": {
+                "type": "object",
+                "properties": {
+                    "greetings": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "greetings",
+            "description": "Greeting to {name}"
+        }
+    ]
+}
